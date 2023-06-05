@@ -15,7 +15,7 @@ export default function App() {
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="ButtonScreen" component={ButtonScreen} />
         <Stack.Screen name="ContactsScreen" component={ContactsScreen} />
-        {/* Jose is a [redacted] */}
+        {/* Jose is a [redacted] for this */}
       </Stack.Navigator>
     </NavigationContainer>
   );
