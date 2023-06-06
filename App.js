@@ -15,7 +15,7 @@ export default function App() {
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="ButtonScreen" component={ButtonScreen} />
         <Stack.Screen name="ContactsScreen" component={ContactsScreen} />
-        {/* branch push not working*/}
+        {/* branch push working*/}
       </Stack.Navigator>
     </NavigationContainer>
   );
