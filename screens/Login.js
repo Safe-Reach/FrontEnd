@@ -1,22 +1,25 @@
 //Login.js
-import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity } from "react-native";
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import React, { useState } from "react";
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView } from "react-native";
 
 export default function Login({ navigation }) {
-  // images
   const LogoImage = require('../assets/logo.png');
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const pressLogin = () => { //need to add code to auth login info once database is setup
+  const pressLogin = () => {
+    // Add code to authenticate login info once the database is set up
     navigation.navigate('HomeScreen');
   };
 
+  const pressSignup = () => {
+    navigation.navigate('SignupPage');
+  };
+
   return (
-    <KeyboardAwareScrollView contentContainerStyle={styles.container}>
+    <KeyboardAvoidingView style={styles.container} behavior="padding">
       <Image source={LogoImage} style={styles.logo} />
-      <Text style={[styles.title]}>Login</Text>
+      <Text style={styles.title}>Login</Text>
       <TextInput
         placeholder="Username"
         value={username}
@@ -30,10 +33,13 @@ export default function Login({ navigation }) {
         style={styles.textBoxes}
         onChangeText={(Text) => { setPassword(Text) }}
       />
-      <TouchableOpacity onPress={pressLogin} style={[styles.buttons, { backgroundColor: '#79e0d4' }]}>
-        <Text style={[styles.buttonText]}>Login</Text>
+      <TouchableOpacity onPress={pressLogin} style={styles.loginButton}>
+        <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
-    </KeyboardAwareScrollView>
+      <TouchableOpacity onPress={pressSignup} style={styles.signupButton}>
+        <Text style={styles.signupButtonText}>Signup</Text>
+      </TouchableOpacity>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -42,44 +48,56 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ffffff',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   logo: {
     marginTop: 40,
     width: 300,
     height: 300,
-    marginBottom: 10
+    marginBottom: 10,
   },
   title: {
     color: '#000000',
     alignSelf: 'flex-start',
     marginLeft: 35,
-    fontSize: 20,
-    marginBottom: 10
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
   },
   textBoxes: {
-    width: 300,
+    width: '80%',
     fontSize: 18,
     textAlign: 'left',
-    padding: 8,
-    marginBottom: 13,
-    marginLeft: 10,
-    backgroundColor: 'white',
-    borderColor: 'black',
-    borderWidth: 1,
-    borderRadius: 5,
+    padding: 12,
+    marginBottom: 20,
+    backgroundColor: '#f8f8f8',
+    borderRadius: 10,
   },
-  buttons: {
-    marginTop: 10,
+  loginButton: {
+    width: '80%',
     alignItems: 'center',
     backgroundColor: '#79e0d4',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 5,
+    paddingVertical: 14,
+    borderRadius: 10,
+    marginBottom: 10,
   },
   buttonText: {
-    color: 'white',
-    fontSize: 19,
-    fontWeight: '800',
-    letterSpacing: 0.05,
+    color: '#ffffff',
+    fontSize: 18,
+    fontWeight: 'bold',
+    letterSpacing: 0.5,
+  },
+  signupButton: {
+    width: '80%',
+    alignItems: 'center',
+    backgroundColor: '#f8f8f8',
+    paddingVertical: 14,
+    borderRadius: 10,
+  },
+  signupButtonText: {
+    color: '#b0a9a9',
+    fontSize: 18,
+    fontWeight: 'bold',
+    letterSpacing: 0.5,
   },
 });
