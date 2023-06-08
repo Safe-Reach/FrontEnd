@@ -5,7 +5,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 
 export default function Login({}) {
     // images 
-    const LogoImage = require('../assets/Safe-Reach Logo.png');
+    const LogoImage = require('../assets/logo.png');
 
     return (
         <KeyboardAwareScrollView contentContainerStyle={styles.container}>
@@ -19,11 +19,12 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#ffffff',
       alignItems: 'center',
-      justifyContent: 'center',
+      //justifyContent: 'center',
     },
     logo: {
-        width: 250,
-        height: 250,
+        marginTop: 20,
+        width: 300,
+        height: 300,
         marginBottom: 20
     }
 })
